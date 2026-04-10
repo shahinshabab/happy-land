@@ -1,39 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Trading Company</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Land Foodstuff Trading LLC</title>
+    <meta name="description" content="Happy Land Foodstuff Trading LLC supplies bottled water, concentrated drinks, packed rice, and other foodstuff products across the UAE." />
 
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+        :root {
+            --brand-primary: #0d6efd;
+            --brand-dark: #0f172a;
+            --brand-accent: #f59e0b;
+            --brand-soft: #f8fafc;
+            --brand-text: #334155;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--brand-text);
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-section {
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.76)),
+                url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80")
+                center/cover no-repeat;
+            color: #fff;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            max-width: 720px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            color: #fff;
+        }
+
+        .section-title {
+            font-weight: 800;
+            color: var(--brand-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #64748b;
+        }
+
+        .info-card,
+        .product-card,
+        .feature-card,
+        .contact-card {
+            border: none;
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+        }
+
+        .info-card:hover,
+        .product-card:hover,
+        .feature-card:hover,
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
+        }
+
+        .icon-box {
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--brand-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section {
+            background: var(--brand-soft);
+        }
+
+        .product-card img {
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 1.25rem;
+            border-top-right-radius: 1.25rem;
+        }
+
+        .product-card .card-title {
+            font-weight: 700;
+            color: var(--brand-dark);
+        }
+
+        .product-card .badge {
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .product-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .stats-box {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .stats-box h3 {
+            margin: 0;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--brand-dark);
+        }
+
+        .contact-section {
+            background:
+                linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #fff7ed 100%);
+        }
+
+        .contact-list li {
+            margin-bottom: 0.85rem;
+        }
+
+        .map-frame {
+            min-height: 320px;
+            border: 0;
+            border-radius: 1rem;
+            width: 100%;
+        }
+
+        .footer {
+            background: var(--brand-dark);
+            color: rgba(255, 255, 255, 0.84);
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #cbd5e1;
+        }
+
+        .btn-warning {
+            color: #111827;
+            font-weight: 700;
+        }
+
+        .product-overlay-link {
+            display: block;
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section {
+                min-height: auto;
+                padding: 6rem 0 4rem;
+            }
+
+            .product-card img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.98rem;
+            }
+
+            .product-card img {
+                height: 190px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">TradeCo</a>
-    </div>
-</nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-shop-window me-2"></i>Happy Land Foodstuff Trading LLC
+            </a>
 
-<!-- Categories -->
-<div class="container mt-5">
-    <h2>Product Categories</h2>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <a href="category-electronics.html" class="btn btn-primary w-100">Electronics</a>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-us">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-warning rounded-pill px-4" href="#contact">Get in Touch</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="col-md-4">
-            <a href="category-clothing.html" class="btn btn-success w-100">Clothing</a>
+    <!-- Hero -->
+    <header class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <span class="hero-badge">
+                        Trusted Foodstuff Supplier in UAE
+                    </span>
+                    <h1 class="hero-title mb-3">
+                        Bulk foodstuff supply for retail shops across the UAE
+                    </h1>
+                    <p class="hero-subtitle mb-4">
+                        Happy Land Foodstuff Trading LLC supplies quality bottled water, concentrated drinks,
+                        packed rice, and essential grocery products to retail stores and resellers. We focus
+                        on dependable supply, practical pricing, and long-term business relationships.
+                    </p>
+
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#products" class="btn btn-primary btn-lg px-4 rounded-pill">
+                            Explore Products
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="hero-card">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <h5 class="fw-bold mb-3">What we supply</h5>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-droplet-half fs-4 text-info"></i>
+                                    <span>Bottled Water</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-cup-straw fs-4 text-warning"></i>
+                                    <span>Concentrated Drinks</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-box-seam fs-4 text-success"></i>
+                                    <span>Packed Rice</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-basket2 fs-4 text-danger"></i>
+                                    <span>Foodstuff Items</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-light opacity-25 my-4" />
+                        <p class="mb-0 small">
+                            Supplying retail shops, groceries, and resellers with consistent stock and responsive service.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="col-md-4">
-            <a href="category-furniture.html" class="btn btn-warning w-100">Furniture</a>
+    <!-- Quick Info -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 mt-n5 position-relative">
+                <div class="col-md-4">
+                    <div class="card info-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5 class="fw-bold">Reliable Supply</h5>
+                        <p class="mb-0">
+                            We support retail businesses with bulk supply and dependable order flow.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card info-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-box2-heart"></i>
+                        </div>
+                        <h5 class="fw-bold">Core Product Lines</h5>
+                        <p class="mb-0">
+                            Strong focus on bottled water, concentrated drinks, packed rice, and other essentials.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card info-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5 class="fw-bold">UAE Market</h5>
+                        <p class="mb-0">
+                            Serving retailers in the UAE with business-friendly communication and support.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
+    <!-- About -->
+    <section class="about-section py-5 py-lg-6" id="about">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="section-title">About Happy Land Foodstuff Trading LLC</h2>
+                <p class="section-subtitle">
+                    A trusted foodstuff trading company serving retail shops with quality products and consistent supply.
+                </p>
+            </div>
+
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <img
+                        src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80"
+                        alt="Foodstuff supply and distribution"
+                        class="img-fluid rounded-4 shadow"
+                    />
+                </div>
+
+                <div class="col-lg-6">
+                    <h3 class="fw-bold text-dark mb-3">
+                        Helping retailers stock essential products with confidence
+                    </h3>
+                    <p>
+                        Happy Land Foodstuff Trading LLC is engaged in the supply of foodstuff products for retail businesses.
+                        The company purchases in bulk through B2B channels and supplies products to retail shops with a focus
+                        on reliability, product availability, and smooth business relationships.
+                    </p>
+                    <p>
+                        The company is especially known for bottled water, concentrated drinks, packed rice, and other practical
+                        grocery items that are in regular demand. With a customer-focused approach, Happy Land aims to support
+                        retailers through timely supply and quality product selection.
+                    </p>
+
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <h3>B2B</h3>
+                                <p class="mb-0 small">Bulk procurement model</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <h3>Retail</h3>
+                                <p class="mb-0 small">Supply for retail shops</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <h3>Water</h3>
+                                <p class="mb-0 small">Popular product category</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <h3>UAE</h3>
+                                <p class="mb-0 small">Established UAE presence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="py-5" id="products">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-subtitle">
+                    Browse some of our key product categories. Each product card can later open a separate product details page.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <a href="bottled-water.html" class="product-overlay-link">
+                            <img
+                                src="https://images.unsplash.com/photo-1559839914-17aae19cec71?auto=format&fit=crop&w=900&q=80"
+                                class="card-img-top"
+                                alt="Bottled Water"
+                            />
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Best Seller</span>
+                            <h5 class="card-title">Bottled Water</h5>
+                            <p class="card-text">
+                                Clean and convenient bottled water options suitable for groceries, supermarkets, and retail outlets.
+                            </p>
+                            <a href="bottled-water.html" class="btn btn-outline-primary mt-auto rounded-pill">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <a href="concentrated-drinks.html" class="product-overlay-link">
+                            <img
+                                src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=900&q=80"
+                                class="card-img-top"
+                                alt="Concentrated Drinks"
+                            />
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-warning-subtle text-warning-emphasis mb-2 align-self-start">Popular</span>
+                            <h5 class="card-title">Concentrated Drinks</h5>
+                            <p class="card-text">
+                                Refreshing concentrated drink products that are practical for daily retail demand and repeat sales.
+                            </p>
+                            <a href="concentrated-drinks.html" class="btn btn-outline-primary mt-auto rounded-pill">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <a href="packed-rice.html" class="product-overlay-link">
+                            <img
+                                src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80"
+                                class="card-img-top"
+                                alt="Packed Rice"
+                            />
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-success-subtle text-success-emphasis mb-2 align-self-start">Essential</span>
+                            <h5 class="card-title">Packed Rice</h5>
+                            <p class="card-text">
+                                Reliable packed rice supply for retailers looking for staple food products with regular turnover.
+                            </p>
+                            <a href="packed-rice.html" class="btn btn-outline-primary mt-auto rounded-pill">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <a href="other-foodstuff.html" class="product-overlay-link">
+                            <img
+                                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80"
+                                class="card-img-top"
+                                alt="Other Foodstuff"
+                            />
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-danger-subtle text-danger-emphasis mb-2 align-self-start">Variety</span>
+                            <h5 class="card-title">Other Foodstuff</h5>
+                            <p class="card-text">
+                                A growing range of foodstuff items to help retail businesses source everyday products from one supplier.
+                            </p>
+                            <a href="other-foodstuff.html" class="btn btn-outline-primary mt-auto rounded-pill">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="mb-3 text-secondary">
+                    Need a custom supply requirement for your shop or chain?
+                </p>
+                <a href="#contact" class="btn btn-primary px-4 rounded-pill">
+                    Request Product Enquiry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="py-5 bg-light" id="why-us">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">
+                    We focus on practical supply needs for retailers and shop owners.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-building-check"></i>
+                        </div>
+                        <h5 class="fw-bold">Business-Focused Supply</h5>
+                        <p class="mb-0">
+                            We understand the everyday needs of retailers and deliver with a business mindset.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-boxes"></i>
+                        </div>
+                        <h5 class="fw-bold">Bulk Product Availability</h5>
+                        <p class="mb-0">
+                            Bulk purchasing strength helps us support customers with practical quantities.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h5 class="fw-bold">Responsive Support</h5>
+                        <p class="mb-0">
+                            Clear communication and accessible contact channels for regular business coordination.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="icon-box mx-auto">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h5 class="fw-bold">Trusted Product Mix</h5>
+                        <p class="mb-0">
+                            Focused on popular and practical foodstuff categories that matter in retail.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section py-5" id="contact">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Contact & Location</h2>
+                <p class="section-subtitle">
+                    Reach out for product enquiries, retail supply discussions, and business coordination.
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5">
+                    <div class="card contact-card p-4 h-100">
+                        <h4 class="fw-bold text-dark mb-4">Get in touch</h4>
+
+                        <ul class="list-unstyled contact-list mb-4">
+                            <li>
+                                <i class="bi bi-building me-2 text-primary"></i>
+                                <strong>Company:</strong> Happy Land Foodstuff Trading LLC
+                            </li>
+                            <li>
+                                <i class="bi bi-telephone me-2 text-primary"></i>
+                                <strong>Phone 1:</strong>
+                                <a href="tel:+971500000001" class="text-decoration-none">+971 50 000 0001</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                                <strong>Phone 2:</strong>
+                                <a href="tel:+971500000002" class="text-decoration-none">+971 50 000 0002</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-envelope me-2 text-primary"></i>
+                                <strong>Email:</strong>
+                                <a href="mailto:info@happylandfoodstuff.com" class="text-decoration-none">info@happylandfoodstuff.com</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-geo-alt me-2 text-primary"></i>
+                                <strong>Address:</strong> Your UAE office address here
+                            </li>
+                            <li>
+                                <i class="bi bi-clock me-2 text-primary"></i>
+                                <strong>Working Hours:</strong> Monday to Saturday, 9:00 AM to 7:00 PM
+                            </li>
+                        </ul>
+
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <a href="tel:+971500000001" class="btn btn-primary rounded-pill">
+                                Call Now
+                            </a>
+                            <a href="https://maps.google.com/" target="_blank" class="btn btn-outline-dark rounded-pill">
+                                Open Location
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card contact-card p-3 h-100">
+                        <iframe
+                            class="map-frame"
+                            src="https://www.google.com/maps?q=Dubai%2C%20UAE&z=11&output=embed"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Happy Land Foodstuff Trading LLC Location"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5">
+        <div class="container">
+            <div class="card border-0 rounded-4 shadow-lg overflow-hidden">
+                <div class="card-body p-4 p-lg-5 bg-primary text-white text-center">
+                    <h2 class="fw-bold mb-3">Looking for a dependable foodstuff supplier?</h2>
+                    <p class="mb-4 mx-auto" style="max-width: 760px;">
+                        Connect with Happy Land Foodstuff Trading LLC for bottled water, concentrated drinks,
+                        packed rice, and other foodstuff supply solutions for your retail business.
+                    </p>
+                    <a href="#contact" class="btn btn-warning btn-lg px-4 rounded-pill">
+                        Contact Happy Land
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        &copy; 2026 Happy Land Foodstuff Trading LLC. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#home" class="me-3">Home</a>
+                    <a href="#products" class="me-3">Products</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
 </body>
 </html>
