@@ -38,8 +38,8 @@
         }
 
         .navbar {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(8px);
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
         .navbar-brand {
@@ -47,10 +47,19 @@
             letter-spacing: 0.3px;
         }
 
+        .navbar .nav-link {
+            color: #0f172a !important;
+            font-weight: 500;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
         .hero-section {
             background:
                 linear-gradient(rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.76)),
-                url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80")
+                url("https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=1600&q=80")
                 center/cover no-repeat;
             color: #fff;
             min-height: 92vh;
@@ -138,6 +147,12 @@
             background: var(--brand-soft);
         }
 
+        .about-text-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .product-card img {
             height: 220px;
             object-fit: cover;
@@ -214,6 +229,49 @@
             display: block;
         }
 
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .brand-title {
+            font-size: 1.1rem;
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 576px) {
+            .brand-logo {
+                width: 55px;
+                height: 55px;
+            }
+
+            .brand-title {
+                font-size: 1.2rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .brand-logo {
+                width: 65px;
+                height: 65px;
+            }
+
+            .brand-title {
+                font-size: 1.35rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.85rem;
+            }
+        }
+
         @media (max-width: 991.98px) {
             .hero-section {
                 min-height: auto;
@@ -242,15 +300,23 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <i class="bi bi-shop-window me-2"></i>Happy Land Foodstuff Trading LLC
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="assets/logo/logo.png" class="brand-logo me-2" alt="Happy Land Foodstuff Logo">
+
+                <div class="d-flex flex-column lh-sm">
+                    <span class="brand-title fw-bold text-dark">
+                        Happy Land Foodstuff
+                    </span>
+                    <small class="brand-tagline text-muted">
+                        Trading LLC
+                    </small>
+                </div>
             </a>
 
             <button
-                class="navbar-toggler"
+                class="navbar-toggler ms-auto"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#mainNavbar"
@@ -286,7 +352,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <header class="hero-section" id="home">
         <div class="container">
             <div class="row align-items-center g-4">
@@ -354,7 +419,6 @@
         </div>
     </header>
 
-    <!-- Quick Info -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4 mt-n5 position-relative">
@@ -397,8 +461,7 @@
         </div>
     </section>
 
-    <!-- About -->
-    <section class="about-section py-5 py-lg-6" id="about">
+    <section class="about-section py-5 py-lg-5" id="about">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <h2 class="section-title">About Happy Land Foodstuff Trading LLC</h2>
@@ -407,54 +470,44 @@
                 </p>
             </div>
 
-            <div class="row align-items-center g-4">
-                <div class="col-lg-6">
-                    <img
-                        src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80"
-                        alt="Foodstuff supply and distribution"
-                        class="img-fluid rounded-4 shadow"
-                    />
-                </div>
+            <div class="about-text-wrap">
+                <h3 class="fw-bold text-dark mb-3">
+                    Helping retailers stock essential products with confidence
+                </h3>
+                <p>
+                    Happy Land Foodstuff Trading LLC is engaged in the supply of foodstuff products for retail businesses.
+                    The company purchases in bulk through B2B channels and supplies products to retail shops with a focus
+                    on reliability, product availability, and smooth business relationships.
+                </p>
+                <p>
+                    The company is especially known for bottled water, concentrated drinks, packed rice, and other practical
+                    grocery items that are in regular demand. With a customer-focused approach, Happy Land aims to support
+                    retailers through timely supply and quality product selection.
+                </p>
 
-                <div class="col-lg-6">
-                    <h3 class="fw-bold text-dark mb-3">
-                        Helping retailers stock essential products with confidence
-                    </h3>
-                    <p>
-                        Happy Land Foodstuff Trading LLC is engaged in the supply of foodstuff products for retail businesses.
-                        The company purchases in bulk through B2B channels and supplies products to retail shops with a focus
-                        on reliability, product availability, and smooth business relationships.
-                    </p>
-                    <p>
-                        The company is especially known for bottled water, concentrated drinks, packed rice, and other practical
-                        grocery items that are in regular demand. With a customer-focused approach, Happy Land aims to support
-                        retailers through timely supply and quality product selection.
-                    </p>
-
-                    <div class="row g-3 mt-3">
-                        <div class="col-6">
-                            <div class="stats-box">
-                                <h3>B2B</h3>
-                                <p class="mb-0 small">Bulk procurement model</p>
-                            </div>
+                <div class="row g-3 mt-4 justify-content-center">
+                    <div class="col-6 col-md-3">
+                        <div class="stats-box">
+                            <h3>B2B</h3>
+                            <p class="mb-0 small">Bulk procurement model</p>
                         </div>
-                        <div class="col-6">
-                            <div class="stats-box">
-                                <h3>Retail</h3>
-                                <p class="mb-0 small">Supply for retail shops</p>
-                            </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-box">
+                            <h3>Retail</h3>
+                            <p class="mb-0 small">Supply for retail shops</p>
                         </div>
-                        <div class="col-6">
-                            <div class="stats-box">
-                                <h3>Water</h3>
-                                <p class="mb-0 small">Popular product category</p>
-                            </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-box">
+                            <h3>Water</h3>
+                            <p class="mb-0 small">Popular product category</p>
                         </div>
-                        <div class="col-6">
-                            <div class="stats-box">
-                                <h3>UAE</h3>
-                                <p class="mb-0 small">Established UAE presence</p>
-                            </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-box">
+                            <h3>UAE</h3>
+                            <p class="mb-0 small">Established UAE presence</p>
                         </div>
                     </div>
                 </div>
@@ -462,7 +515,6 @@
         </div>
     </section>
 
-    <!-- Products -->
     <section class="py-5" id="products">
         <div class="container py-3">
             <div class="text-center mb-5">
@@ -473,12 +525,11 @@
             </div>
 
             <div class="row g-4">
-                <!-- Product 1 -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="card product-card h-100">
                         <a href="bottled-water.html" class="product-overlay-link">
                             <img
-                                src="https://images.unsplash.com/photo-1559839914-17aae19cec71?auto=format&fit=crop&w=900&q=80"
+                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shrink_wrapped_case_of_bottles.jpg"
                                 class="card-img-top"
                                 alt="Bottled Water"
                             />
@@ -496,7 +547,6 @@
                     </div>
                 </div>
 
-                <!-- Product 2 -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="card product-card h-100">
                         <a href="concentrated-drinks.html" class="product-overlay-link">
@@ -519,7 +569,6 @@
                     </div>
                 </div>
 
-                <!-- Product 3 -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="card product-card h-100">
                         <a href="packed-rice.html" class="product-overlay-link">
@@ -542,7 +591,6 @@
                     </div>
                 </div>
 
-                <!-- Product 4 -->
                 <div class="col-sm-6 col-lg-3">
                     <div class="card product-card h-100">
                         <a href="other-foodstuff.html" class="product-overlay-link">
@@ -577,7 +625,6 @@
         </div>
     </section>
 
-    <!-- Why Us -->
     <section class="py-5 bg-light" id="why-us">
         <div class="container py-3">
             <div class="text-center mb-5">
@@ -639,7 +686,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section class="contact-section py-5" id="contact">
         <div class="container py-3">
             <div class="text-center mb-5">
@@ -700,7 +746,7 @@
                         <iframe
                             class="map-frame"
                             src="https://www.google.com/maps?q=Dubai%2C%20UAE&z=11&output=embed"
-                            allowfullscreen=""
+                            allowfullscreen
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
                             title="Happy Land Foodstuff Trading LLC Location"
@@ -711,7 +757,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="py-5">
         <div class="container">
             <div class="card border-0 rounded-4 shadow-lg overflow-hidden">
@@ -729,7 +774,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer py-4">
         <div class="container">
             <div class="row g-3 align-items-center">
@@ -747,7 +791,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
