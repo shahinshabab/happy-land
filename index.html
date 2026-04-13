@@ -297,6 +297,154 @@
             }
         }
     </style>
+    <style>
+        /* ===== Animated Product Showcase ===== */
+
+        .products-showcase {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            overflow: hidden;
+        }
+
+        .product-marquee {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-track {
+            display: flex;
+            gap: 1.25rem;
+            width: max-content;
+        }
+
+        .product-marquee:hover .product-track {
+            animation-play-state: paused;
+        }
+
+        .product-tile {
+            flex: 0 0 260px;
+            background: transparent; /* removed white box */
+            border-radius: 1rem;
+            overflow: hidden;
+
+            /* light border */
+            border: 1px solid rgba(15, 23, 42, 0.08);
+
+            /* removed shadow */
+            box-shadow: none;
+
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+        }
+
+        .product-tile img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-tile-body {
+            padding: 1rem;
+        }
+
+        .product-tile-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--brand-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-tile-text {
+            font-size: 0.92rem;
+            color: #64748b;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* Row 1: left to right */
+        .track-left-to-right {
+            animation: marqueeLTR 28s linear infinite;
+        }
+
+        /* Row 2: right to left */
+        .track-right-to-left {
+            animation: marqueeRTL 30s linear infinite;
+        }
+
+        /* Row 3: left to right slower */
+        .track-slow {
+            animation: marqueeLTR 38s linear infinite;
+        }
+
+        /* Row 4: right to left faster */
+        .track-fast {
+            animation: marqueeRTL 24s linear infinite;
+        }
+
+        @keyframes marqueeLTR {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes marqueeRTL {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .products-note-box {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+            padding: 2rem 1.25rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .product-tile {
+                flex: 0 0 230px;
+            }
+
+            .product-tile img {
+                height: 175px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .product-tile {
+                flex: 0 0 200px;
+            }
+
+            .product-tile img {
+                height: 155px;
+            }
+
+            .product-tile-body {
+                padding: 0.9rem;
+            }
+
+            .product-tile-title {
+                font-size: 1rem;
+            }
+
+            .product-tile-text {
+                font-size: 0.88rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -515,112 +663,275 @@
         </div>
     </section>
 
-    <section class="py-5" id="products">
+    <section class="products-showcase py-5" id="products">
         <div class="container py-3">
             <div class="text-center mb-5">
                 <h2 class="section-title">Our Products</h2>
                 <p class="section-subtitle">
-                    Browse some of our key product categories. Each product card can later open a separate product details page.
+                    Explore our product range supplied for retail shops, groceries, and resellers.
                 </p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card product-card h-100">
-                        <a href="bottled-water.html" class="product-overlay-link">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shrink_wrapped_case_of_bottles.jpg"
-                                class="card-img-top"
-                                alt="Bottled Water"
-                            />
-                        </a>
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-primary-subtle text-primary mb-2 align-self-start">Best Seller</span>
-                            <h5 class="card-title">Bottled Water</h5>
-                            <p class="card-text">
-                                Clean and convenient bottled water options suitable for groceries, supermarkets, and retail outlets.
-                            </p>
-                            <a href="bottled-water.html" class="btn btn-outline-primary mt-auto rounded-pill">
-                                View Details
-                            </a>
+            <!-- Row 1 -->
+            <div class="product-marquee">
+                <div class="product-track track-left-to-right">
+                    <!-- set 1 -->
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 1">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 1</h5>
+                            <p class="product-tile-text">Simple product description for your first item in this range.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card product-card h-100">
-                        <a href="concentrated-drinks.html" class="product-overlay-link">
-                            <img
-                                src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=900&q=80"
-                                class="card-img-top"
-                                alt="Concentrated Drinks"
-                            />
-                        </a>
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-warning-subtle text-warning-emphasis mb-2 align-self-start">Popular</span>
-                            <h5 class="card-title">Concentrated Drinks</h5>
-                            <p class="card-text">
-                                Refreshing concentrated drink products that are practical for daily retail demand and repeat sales.
-                            </p>
-                            <a href="concentrated-drinks.html" class="btn btn-outline-primary mt-auto rounded-pill">
-                                View Details
-                            </a>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 2">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 2</h5>
+                            <p class="product-tile-text">Simple product description for your second item in this range.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card product-card h-100">
-                        <a href="packed-rice.html" class="product-overlay-link">
-                            <img
-                                src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80"
-                                class="card-img-top"
-                                alt="Packed Rice"
-                            />
-                        </a>
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-success-subtle text-success-emphasis mb-2 align-self-start">Essential</span>
-                            <h5 class="card-title">Packed Rice</h5>
-                            <p class="card-text">
-                                Reliable packed rice supply for retailers looking for staple food products with regular turnover.
-                            </p>
-                            <a href="packed-rice.html" class="btn btn-outline-primary mt-auto rounded-pill">
-                                View Details
-                            </a>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 3">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 3</h5>
+                            <p class="product-tile-text">Simple product description for your third item in this range.</p>
                         </div>
                     </div>
-                </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 4">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 4</h5>
+                            <p class="product-tile-text">Simple product description for your fourth item in this range.</p>
+                        </div>
+                    </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card product-card h-100">
-                        <a href="other-foodstuff.html" class="product-overlay-link">
-                            <img
-                                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80"
-                                class="card-img-top"
-                                alt="Other Foodstuff"
-                            />
-                        </a>
-                        <div class="card-body d-flex flex-column">
-                            <span class="badge bg-danger-subtle text-danger-emphasis mb-2 align-self-start">Variety</span>
-                            <h5 class="card-title">Other Foodstuff</h5>
-                            <p class="card-text">
-                                A growing range of foodstuff items to help retail businesses source everyday products from one supplier.
-                            </p>
-                            <a href="other-foodstuff.html" class="btn btn-outline-primary mt-auto rounded-pill">
-                                View Details
-                            </a>
+                    <!-- duplicate set -->
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 1">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 1</h5>
+                            <p class="product-tile-text">Simple product description for your first item in this range.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 2">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 2</h5>
+                            <p class="product-tile-text">Simple product description for your second item in this range.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 3">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 3</h5>
+                            <p class="product-tile-text">Simple product description for your third item in this range.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 4">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 4</h5>
+                            <p class="product-tile-text">Simple product description for your fourth item in this range.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mt-5">
-                <p class="mb-3 text-secondary">
-                    Need a custom supply requirement for your shop or chain?
+            <!-- Row 2 -->
+            <div class="product-marquee">
+                <div class="product-track track-right-to-left">
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 5">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 5</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 6">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 6</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 7">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 7</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 8">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 8</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 5">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 5</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 6">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 6</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 7">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 7</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 8">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 8</h5>
+                            <p class="product-tile-text">Simple product description for another product from your collection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="product-marquee">
+                <div class="product-track track-slow">
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 9">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 9</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 10">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 10</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 11">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 11</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 12">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 12</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 9">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 9</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 10">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 10</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 11">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 11</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 12">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 12</h5>
+                            <p class="product-tile-text">Simple product description with a slower and smoother showcase movement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="product-marquee">
+                <div class="product-track track-fast">
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 13">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 13</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 14">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 14</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 15">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 15</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 16">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 16</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 13">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 13</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 14">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 14</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 15">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 15</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                    <div class="product-tile">
+                        <img src="assets/products/example.png" alt="Product 16">
+                        <div class="product-tile-body">
+                            <h5 class="product-tile-title">Product 16</h5>
+                            <p class="product-tile-text">Simple product description for the final animated product row.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-note-box text-center">
+                <h4 class="fw-bold text-dark mb-3">Looking for bulk supply products?</h4>
+                <p class="text-secondary mb-4">
+                    We supply product ranges suitable for groceries, supermarkets, and retail shops across the UAE.
                 </p>
-                <a href="#contact" class="btn btn-primary px-4 rounded-pill">
-                    Request Product Enquiry
-                </a>
+                <a href="#contact" class="btn btn-primary rounded-pill px-4">Send Enquiry</a>
             </div>
         </div>
     </section>
