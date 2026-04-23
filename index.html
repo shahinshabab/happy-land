@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="Happy Land Foodstuff Trading LLC Home">
         <img src="assets/logo/logo.png" alt="Happy Land Logo" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-title">Happy Land Foodstuff</span>
@@ -21,7 +21,14 @@
         </div>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -32,50 +39,163 @@
           <li><a href="index.html">Home</a></li>
 
           <li class="has-dropdown">
-            <button class="dropdown-btn" type="button">
+            <button class="dropdown-btn" type="button" aria-expanded="false">
               Products
               <span class="arrow">▾</span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#water">Water</a></li>
-              <li><a href="#concentrated-drinks">Concentrated Drinks</a></li>
-              <li><a href="#packed-rice">Packed Rice</a></li>
-              <li><a href="#grocery-items">Grocery Items</a></li>
+              <li><a href="water.html">Water</a></li>
+              <li><a href="cold-drinks-sodas.html">Cold Drinks &amp; Sodas</a></li>
+              <li><a href="non-alcoholic-drinks.html">Non Alcoholic Drinks</a></li>
+              <li><a href="energy-drinks.html">Energy Drinks</a></li>
+              <li><a href="tea-coffee.html">Tea &amp; Coffee</a></li>
+              <li><a href="milk-dairy.html">Milk &amp; Dairy</a></li>
+              <li><a href="syrups-sauces-puree.html">Syrups, Sauces &amp; Puree</a></li>
+              <li><a href="juices.html">Juices</a></li>
             </ul>
           </li>
 
           <li><a href="about.html">About Us</a></li>
           <li><a href="ecatalogue.html">E-Catalogue</a></li>
           <li><a href="wholesale.html">Wholesale</a></li>
+
+          <li class="whatsapp-nav">
+            <a
+              href="https://wa.me/971XXXXXXXXX?text=Hello%20I%20am%20interested%20in%20your%20products"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="whatsapp-btn"
+              aria-label="Chat on WhatsApp"
+            >
+              WhatsApp
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Promotion Banner -->
     <section class="promo-hero" id="home">
       <img
         id="promoImage"
-        src="assets/promotions/ramadan-sale.jpg"
+        src="assets/homepage/hero/ramadan-sale.jpg"
         alt="Promotion Banner"
         class="promo-image"
       />
     </section>
 
-    <!-- Promotion Top Selling Products -->
-    <section class="promo-products-section" id="promoProductsSection">
+    <section class="promo-products-section" id="topSellingSection">
       <div class="container">
-        <h2 class="promo-products-heading" id="promoProductsHeading">
-          Top Selling Products
-        </h2>
-
+        <h2 class="promo-products-heading" id="topSellingHeading">Top Selling Products</h2>
         <div class="promo-products-marquee">
-          <div class="promo-products-track" id="promoProductsTrack"></div>
+          <div class="promo-products-track" id="topSellingTrack"></div>
         </div>
       </div>
     </section>
 
+    <section class="product-categories-section">
+      <div class="container">
+        <div class="categories-grid">
+          <article class="category-card">
+            <img src="assets/homepage/categories/beverages/water.jpg" alt="Water" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Water</h3>
+              <a href="water.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/beverages/cold-drinks-sodas.jpg" alt="Cold Drinks and Sodas" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Cold Drinks &amp; Sodas</h3>
+              <a href="cold-drinks-sodas.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/beverages/non-alcoholic-drinks.jpg" alt="Non Alcoholic Drinks" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Non Alcoholic Drinks</h3>
+              <a href="non-alcoholic-drinks.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/beverages/energy-drinks.jpg" alt="Energy Drinks" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Energy Drinks</h3>
+              <a href="energy-drinks.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-banner-section">
+      <img src="assets/homepage/banners/beverages/banner-1.jpg" alt="Water top selling products" class="full-banner-image" />
+      <img src="assets/homepage/banners/beverages/banner-2.jpg" alt="Cold drinks and sodas top selling products" class="full-banner-image" />
+      <img src="assets/homepage/banners/beverages/banner-3.jpg" alt="Non alcoholic drinks top selling products" class="full-banner-image" />
+      <img src="assets/homepage/banners/beverages/banner-4.jpg" alt="Energy drinks top selling products" class="full-banner-image" />
+    </section>
+
+    <section class="promo-products-section promo-products-section-alt" id="topValueSection">
+      <div class="container">
+        <h2 class="promo-products-heading" id="topValueHeading">Top Value Products</h2>
+        <div class="promo-products-marquee">
+          <div class="promo-products-track" id="topValueTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-categories-section product-categories-section-alt">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <h2 class="section-heading">More Categories</h2>
+        </div>
+
+        <div class="categories-grid">
+          <article class="category-card">
+            <img src="assets/homepage/categories/pantry/tea-coffee.jpg" alt="Tea and Coffee" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Tea &amp; Coffee</h3>
+              <a href="tea-coffee.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/pantry/milk-dairy.jpg" alt="Milk and Dairy" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Milk &amp; Dairy</h3>
+              <a href="milk-dairy.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/pantry/syrups-sauces-puree.jpg" alt="Syrups, Sauces and Puree" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Syrups, Sauces &amp; Puree</h3>
+              <a href="syrups-sauces-puree.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="assets/homepage/categories/pantry/juices.jpg" alt="Juices" class="category-card-image" />
+            <div class="category-card-content">
+              <h3>Juices</h3>
+              <a href="juices.html" class="category-btn">View Products</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-banner-section">
+      <img src="assets/homepage/banners/pantry/banner-1.jpg" alt="Tea and coffee products" class="full-banner-image" />
+      <img src="assets/homepage/banners/pantry/banner-2.jpg" alt="Milk and dairy products" class="full-banner-image" />
+      <img src="assets/homepage/banners/pantry/banner-3.jpg" alt="Syrups sauces and puree products" class="full-banner-image" />
+      <img src="assets/homepage/banners/pantry/banner-4.jpg" alt="Juices products" class="full-banner-image" />
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -83,6 +203,25 @@
       <p>© 2026 Happy Land Foodstuff Trading LLC. All rights reserved.</p>
     </div>
   </footer>
+
+  <a
+    href="https://wa.me/971XXXXXXXXX?text=Hello%20I%20am%20interested%20in%20your%20products"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" class="whatsapp-icon">
+      <path
+        fill="currentColor"
+        d="M19.11 17.21c-.29-.15-1.69-.83-1.95-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.91 1.12-.17.19-.33.22-.62.07-.29-.15-1.21-.45-2.31-1.42-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43 0 1.43 1.04 2.81 1.19 3 .15.19 2.05 3.13 5.07 4.39.72.31 1.28.49 1.72.63.72.23 1.38.19 1.89.12.58-.09 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33Z"
+      />
+      <path
+        fill="currentColor"
+        d="M16.03 3.2C8.95 3.2 3.2 8.88 3.2 15.88c0 2.24.59 4.43 1.72 6.36L3 29l6.97-1.82a12.96 12.96 0 0 0 6.06 1.54h.01c7.08 0 12.83-5.68 12.83-12.68 0-7-5.75-12.84-12.84-12.84Zm0 23.18h-.01a10.84 10.84 0 0 1-5.52-1.51l-.4-.24-4.13 1.08 1.1-4.02-.26-.41a10.48 10.48 0 0 1-1.63-5.61c0-5.79 4.84-10.5 10.85-10.5 2.9 0 5.61 1.11 7.65 3.13a10.36 10.36 0 0 1 3.16 7.43c0 5.79-4.84 10.5-10.81 10.5Z"
+      />
+    </svg>
+  </a>
 
   <script src="script.js"></script>
 </body>

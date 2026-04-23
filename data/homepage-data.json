@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Summer Sale",
+    "image": "assets/homepage/hero/summer-sale.jpg",
+    "show": true
+  },
+  "marquees": {
+    "topSelling": {
+      "title": "Top Selling Products",
+      "show": true,
+      "products": [
+        {
+          "title": "Evian",
+          "image": "assets/homepage/marquee/top-selling/evian.jpg",
+          "show": true
+        },
+        {
+          "title": "Aquafina",
+          "image": "assets/homepage/marquee/top-selling/aquafina.jpg",
+          "show": true
+        },
+        {
+          "title": "Mai Dubai",
+          "image": "assets/homepage/marquee/top-selling/maidubai.jpg",
+          "show": true
+        },
+        {
+          "title": "Al Ain",
+          "image": "assets/homepage/marquee/top-selling/alain.jpg",
+          "show": true
+        },
+        {
+          "title": "Fiji",
+          "image": "assets/homepage/marquee/top-selling/fiji.jpg",
+          "show": true
+        }
+      ]
+    },
+    "topValue": {
+      "title": "Top Value Products",
+      "show": true,
+      "products": [
+        {
+          "title": "Red Bull",
+          "image": "assets/homepage/marquee/top-value/redbull.jpg",
+          "show": true
+        },
+        {
+          "title": "Lacnor",
+          "image": "assets/homepage/marquee/top-value/lacnor.jpg",
+          "show": true
+        },
+        {
+          "title": "Nescafe",
+          "image": "assets/homepage/marquee/top-value/nescafe.jpg",
+          "show": true
+        },
+        {
+          "title": "Nadec",
+          "image": "assets/homepage/marquee/top-value/nadec.jpg",
+          "show": true
+        },
+        {
+          "title": "DaVinci",
+          "image": "assets/homepage/marquee/top-value/davinci.jpg",
+          "show": true
+        }
+      ]
+    }
+  },
+  "location": {
+    "mapEmbed": "",
+    "address": "Happy Land Foodstuff Trading LLC, UAE"
+  }
+}

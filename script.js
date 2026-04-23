@@ -4,76 +4,97 @@ const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
 if (menuToggle && mainNav) {
   menuToggle.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
+    const isOpen = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
 dropdownButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (window.innerWidth <= 900) {
-      const parent = button.parentElement;
-      parent.classList.toggle("open");
+      const parent = button.closest(".has-dropdown");
+      if (!parent) return;
+
+      const isOpen = parent.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
     }
   });
 });
 
-async function loadPromotionBanner() {
+function buildMarqueeHTML(products = []) {
+  return products
+    .filter((product) => product.show)
+    .map(
+      (product) => `
+        <div class="promo-product-card">
+          <img
+            src="${product.image}"
+            alt="${product.title}"
+            class="promo-product-image"
+            loading="lazy"
+          />
+          <p class="promo-product-title">${product.title}</p>
+        </div>
+      `
+    )
+    .join("");
+}
+
+async function loadHomepageData() {
   try {
-    const response = await fetch("./data/promotion.json");
-    const promo = await response.json();
+    const response = await fetch("./data/homepage-data.json");
 
-    const promoHero = document.querySelector(".promo-hero");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch homepage data: ${response.status}`);
+    }
+
+    const data = await response.json();
+
     const promoImage = document.getElementById("promoImage");
-    const promoProductsSection = document.getElementById("promoProductsSection");
-    const promoProductsHeading = document.getElementById("promoProductsHeading");
-    const promoProductsTrack = document.getElementById("promoProductsTrack");
 
-    if (!promo.show) {
-      if (promoHero) promoHero.style.display = "none";
-      if (promoProductsSection) promoProductsSection.style.display = "none";
-      return;
+    const topSellingSection = document.getElementById("topSellingSection");
+    const topSellingHeading = document.getElementById("topSellingHeading");
+    const topSellingTrack = document.getElementById("topSellingTrack");
+
+    const topValueSection = document.getElementById("topValueSection");
+    const topValueHeading = document.getElementById("topValueHeading");
+    const topValueTrack = document.getElementById("topValueTrack");
+
+    if (promoImage && data.hero?.show) {
+      promoImage.src = data.hero.image;
+      promoImage.alt = data.hero.title || "Promotion Banner";
     }
 
-    if (promoImage) {
-      promoImage.src = promo.image;
-      promoImage.alt = promo.title || "Promotion Banner";
-    }
-
-    if (promoProductsHeading && promo.title) {
-      promoProductsHeading.textContent = `${promo.title} Top Selling Products`;
-    }
-
-    if (
-      promoProductsTrack &&
-      promo.products &&
-      Array.isArray(promo.products) &&
-      promo.products.length > 0
-    ) {
-      const visibleProducts = promo.products.filter(product => product.show);
-
-      if (visibleProducts.length === 0) {
-        promoProductsSection.style.display = "none";
-        return;
+    if (data.marquees?.topSelling?.show) {
+      if (topSellingHeading) {
+        topSellingHeading.textContent =
+          data.marquees.topSelling.title || "Top Selling Products";
       }
 
-      const productsHTML = visibleProducts.map((product) => {
-        return `
-          <div class="promo-product-card">
-            <img src="${product.image}" alt="${product.title}" class="promo-product-image" />
-            <p class="promo-product-title">${product.title}</p>
-          </div>
-        `;
-      }).join("");
-
-      // duplicate for smooth infinite scroll
-      promoProductsTrack.innerHTML = productsHTML + productsHTML;
-    } else {
-      promoProductsSection.style.display = "none";
+      if (topSellingTrack) {
+        const sellingHTML = buildMarqueeHTML(data.marquees.topSelling.products);
+        topSellingTrack.innerHTML = sellingHTML ? sellingHTML + sellingHTML : "";
+      }
+    } else if (topSellingSection) {
+      topSellingSection.style.display = "none";
     }
 
+    if (data.marquees?.topValue?.show) {
+      if (topValueHeading) {
+        topValueHeading.textContent =
+          data.marquees.topValue.title || "Top Value Products";
+      }
+
+      if (topValueTrack) {
+        const valueHTML = buildMarqueeHTML(data.marquees.topValue.products);
+        topValueTrack.innerHTML = valueHTML ? valueHTML + valueHTML : "";
+      }
+    } else if (topValueSection) {
+      topValueSection.style.display = "none";
+    }
   } catch (error) {
-    console.error("Error loading promotion banner:", error);
+    console.error("Error loading homepage data:", error);
   }
 }
 
-loadPromotionBanner();
+loadHomepageData();

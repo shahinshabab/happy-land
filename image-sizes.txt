@@ -1,2 +1,256 @@
-1600 × 900 px (16:9 ratio)    promotion size
-500 x 500 px        promotion image
+---
+
+# 🖼️ 1. HERO / PROMOTION BANNER
+
+### 📍 Location:
+
+Top section (main banner)
+
+### ✅ Recommended size:
+
+```
+1920 × 800 px  (BEST)
+```
+
+### Alternative:
+
+```
+1600 × 700 px (OK)
+```
+
+### ❌ Avoid:
+
+* Square (1980×1980 ❌)
+* Too tall images
+
+### 📝 Text guideline:
+
+* Keep text minimal (or no text)
+* Example:
+
+  * "Ramadan Sale"
+  * "Special Offers"
+  * "Wholesale Prices Available"
+
+### 📂 Folder:
+
+```
+assets/homepage/hero/
+```
+
+---
+
+# 🛒 2. MARQUEE PRODUCTS (Top Selling / Top Value)
+
+### 📍 Location:
+
+Scrolling product row
+
+### ✅ Recommended size:
+
+```
+500 × 500 px (1:1 square)
+```
+
+### Display size (your CSS):
+
+```
+160 × 160 px (desktop)
+110 × 110 px (mobile)
+```
+
+### 📝 Text:
+
+* No text inside image
+* Product name is below image
+
+### 📂 Folder:
+
+```
+assets/homepage/marquee/top-selling/
+assets/homepage/marquee/top-value/
+```
+
+---
+
+# 🧩 3. CATEGORY CARDS (All categories)
+
+### 📍 Location:
+
+* Beverage categories
+* Pantry categories
+
+### ✅ Recommended size:
+
+```
+600 × 400 px  (3:2 ratio)
+```
+
+### Alternative:
+
+```
+800 × 500 px
+```
+
+### ❌ Avoid:
+
+* Square images (look cramped)
+* Portrait images (break layout)
+
+### 📝 Text:
+
+* No text inside image
+* Title already shown below:
+
+  * Water
+  * Juices
+  * etc.
+
+### 📂 Folder:
+
+```
+assets/homepage/categories/beverages/
+assets/homepage/categories/pantry/
+```
+
+---
+
+# 🖼️ 4. FULL WIDTH CATEGORY BANNERS
+
+### 📍 Location:
+
+After each category section
+
+### ✅ Recommended size:
+
+```
+1920 × 600 px  (BEST)
+```
+
+### Alternative:
+
+```
+1600 × 500 px
+```
+
+### ❌ Avoid:
+
+* Tall images
+* Low resolution (blurry)
+
+### 📝 Text suggestion:
+
+Optional, but if used:
+
+* “Top Selling Water Brands”
+* “Premium Cold Drinks”
+* “Best Dairy Products”
+
+👉 Keep text LEFT or CENTER, not edge
+
+### 📂 Folder:
+
+```
+assets/homepage/banners/beverages/
+assets/homepage/banners/pantry/
+```
+
+---
+
+# 🟢 5. WHATSAPP ICON
+
+### 📍 Location:
+
+Floating button
+
+### ✅ Recommended size:
+
+```
+64 × 64 px PNG (transparent)
+```
+
+### Display size:
+
+```
+28 × 28 px
+```
+
+### 📂 Folder:
+
+```
+assets/icons/
+```
+
+---
+
+# 🏷️ 6. LOGO
+
+### 📍 Location:
+
+Navbar
+
+### ✅ Recommended size:
+
+```
+200 × 200 px PNG (square, transparent)
+```
+
+### Display size:
+
+```
+48 × 48 px (mobile)
+54 × 54 px (desktop)
+```
+
+---
+
+# 📊 SUMMARY TABLE
+
+| Section           | Size     | Ratio | Folder      |
+| ----------------- | -------- | ----- | ----------- |
+| Hero Banner       | 1920×800 | Wide  | hero/       |
+| Marquee Products  | 500×500  | 1:1   | marquee/    |
+| Category Cards    | 600×400  | 3:2   | categories/ |
+| Full Width Banner | 1920×600 | Wide  | banners/    |
+| WhatsApp Icon     | 64×64    | 1:1   | icons/      |
+| Logo              | 200×200  | 1:1   | logo/       |
+
+---
+
+# ⚡ PERFORMANCE TIP (VERY IMPORTANT)
+
+Before uploading images:
+
+### Compress images using:
+
+* [https://tinypng.com](https://tinypng.com)
+* [https://squoosh.app](https://squoosh.app)
+
+### Target sizes:
+
+* Hero: < 300KB
+* Banners: < 250KB
+* Products: < 100KB
+* Icons: < 30KB
+
+---
+
+# 🎯 PRO DESIGN RULES
+
+✔ Same style images per section
+✔ Same background color (white or clean)
+✔ Avoid mixed lighting
+✔ Keep products centered
+✔ Use high resolution (no blur)
+
+---
+
+# 🚀 If you want next
+
+I can:
+
+* Give you **exact free image sources for each category**
+* Create **AI prompt to generate all images in same style**
+* Help you **auto-load images from JSON (no HTML editing)**
+
+Just tell 👍
